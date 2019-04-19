@@ -133,10 +133,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
-
+STATIC_URL = '/static/'#for style sheets and javascripts
+STATIC_ROOT= os.path.join(BASE_DIR,'static')
+MEDIA_URL = '/media/'#for upload/download documents
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = 'home'
-SOCIAL_AUTH_FACEBOOK_KEY = '582479455595502'  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = '35b48efb73332d1b1075a13b70405ba1'  # App Secret
+SOCIAL_AUTH_FACEBOOK_KEY = '****************'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '********************'  # App Secret

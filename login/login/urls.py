@@ -29,13 +29,18 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+from django.conf.urls.static import static
+from . import settings
 
 from  login import views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
+    url(r'^main/',include('home.urls', namespace='home')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
     url(r'^register/',views.register,name='register'),
     url(r'^admin/', admin.site.urls),
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
